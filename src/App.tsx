@@ -46,13 +46,13 @@ function App() {
           </option>
         ))}
       </select>
-      {/* <div>
+      <div style={{ paddingTop: 30, border: "2px dotted black" }}>
+        {selection ? <selection.Component /> : null}
+      </div>
+
+      <div>
         {stringify(componentsByName)}
         {stringify(selection)}
-      </div> */}
-
-      <div style={{ paddingTop: 30 }}>
-        {selection ? <selection.Component /> : null}
       </div>
     </div>
   );
