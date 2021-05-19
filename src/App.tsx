@@ -3,20 +3,31 @@ import _ from "lodash";
 
 import * as Examples from "./examples";
 
-const Components = [
-  { name: "RenderProp FC", Component: Examples.RenderPropFC },
-];
+const mapper = (value: [string, React.FunctionComponent<any>]) => {
+  const [name, fn] = value;
+  return {
+    name,
+    Component: fn,
+  };
+};
 
 function App() {
+  const [Components] = React.useState(() =>
+    Object.entries(Examples).map(mapper),
+  );
+
   const [selection, setSelection] = React.useState(Components[0]);
-  const componentsByName = React.useMemo(() => _.keyBy(Components, "name"), []);
+
+  const componentsByName = React.useMemo(
+    () => _.keyBy(Components, "name"),
+    [Components],
+  );
 
   function onSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const selectedName = event.target.value;
     const component = componentsByName[selectedName];
     setSelection(component);
   }
-  console.log(componentsByName);
 
   function stringify(object: any) {
     return (
@@ -35,9 +46,13 @@ function App() {
           </option>
         ))}
       </select>
-      <div>
+      {/* <div>
         {stringify(componentsByName)}
         {stringify(selection)}
+      </div> */}
+
+      <div style={{ paddingTop: 30 }}>
+        {selection ? <selection.Component /> : null}
       </div>
     </div>
   );
