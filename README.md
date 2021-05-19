@@ -2,7 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It is a playground for me to implement HOCS and [Render Props](https://pt-br.reactjs.org/docs/render-props.html) with React+Typescript.
+It is a playground to implement HOCS and Render Props with React+Typescript.
+
+References:
+
+[Steve Kinney React and Typescript Course](https://stevekinney.github.io/react-and-typescript/higher-order-components/)
+
+[React Docs](https://pt-br.reactjs.org/docs/render-props.html)
+
+[Render Props are Not Dead - @Erik Rasmussen (aka @erikras) at @ReactEurope 2020](https://www.youtube.com/watch?v=pn0pIgdQvhU)
+
+[React Render Props Made Simple!](https://www.youtube.com/watch?v=3IdCQ7QAs38)
 
 ## Available Scripts
 
