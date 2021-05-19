@@ -5,6 +5,10 @@ type MouseXY = {
   y: number;
 };
 
+type MouseProps = {
+  render: (state: MouseXY) => React.ReactNode;
+};
+
 const Cat: React.FunctionComponent<{ mouse: MouseXY }> = ({ mouse }) => {
   return (
     <img
@@ -15,9 +19,6 @@ const Cat: React.FunctionComponent<{ mouse: MouseXY }> = ({ mouse }) => {
   );
 };
 
-type MouseProps = {
-  render: (state: MouseXY) => React.ReactNode;
-};
 const Mouse: React.FunctionComponent<MouseProps> = (props) => {
   const [state, setState] = React.useState<MouseXY>({ x: 0, y: 0 });
 
